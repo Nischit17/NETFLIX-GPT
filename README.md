@@ -1,7 +1,11 @@
 # Netflix GPT
 
-- Create React App.
-- Congifured TailwindCSS.
+- Build
+  - Create React App.
+  - Congifured TailwindCSS.
+  - Header.
+  - Login Form.
+  - Signup Form.
 
 # Features
 
