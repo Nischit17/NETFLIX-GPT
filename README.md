@@ -15,6 +15,11 @@
   - Created REDUX-TOOLKIT Store with userSlice.
   - Implemented Sign out.
   - Update Profile.
+  - BugFix:
+    - Sign up user displayName & Profile picture update.
+    - If the user is !loggedIn Redirect to ('/') (VICE-VERSA)
+    - Unsubscribed to the onAuthStateChanged callback.
+  - Add hardcoded values to the constants file.
 
 # Features
 
