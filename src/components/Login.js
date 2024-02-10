@@ -2,21 +2,59 @@ import React, { useRef, useState } from "react";
 import Header from "./Header";
 import Netflix_bg_img from "../assets/image/Netflix_BG_.jpg";
 import { checkValidData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
   const password = useRef(null);
-  const fullname = useRef(null);
+  // const fullname = useRef(null);
 
   const HandleButtonClick = () => {
     const message = checkValidData(
-      fullname.current.value,
+      // fullname.current.value,
       email.current.value,
       password.current.value
     );
     setErrorMessage(message);
+    if (message) return;
+
+    if (!isSignInForm) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
+    } else {
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + " - " + errorMessage);
+        });
+    }
   };
 
   const toggleSignInForm = () => {
@@ -38,7 +76,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
-            ref={fullname}
+            // ref={fullname}
             type="text"
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-[#36455d] rounded-lg"

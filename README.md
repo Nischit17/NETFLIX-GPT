@@ -9,6 +9,8 @@
   - Signup Form.
   - Form Validation.
   - UseRef Hook.
+  - Firebase Setup.
+  - Create SignUp User Account.
 
 # Features
 
