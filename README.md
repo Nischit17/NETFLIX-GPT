@@ -4,8 +4,11 @@
   - Create React App.
   - Congifured TailwindCSS.
   - Header.
+  - Routing.
   - Login Form.
   - Signup Form.
+  - Form Validation.
+  - UseRef Hook.
 
 # Features
 
