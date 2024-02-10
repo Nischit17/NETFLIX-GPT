@@ -11,6 +11,10 @@
   - UseRef Hook.
   - Firebase Setup.
   - Create SignUp User Account.
+  - Implement Sign In user API.
+  - Created REDUX-TOOLKIT Store with userSlice.
+  - Implemented Sign out.
+  - Update Profile.
 
 # Features
 
